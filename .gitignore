@@ -1,0 +1,20 @@
+# General OS / editor cruft
+.DS_Store
+*.swp
+*.swo
+*.tmp
+*.log
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+
+# ESP-IDF / ESP-Matter generated files
+esp32-esp32-matter-link/esp32-matter-node/firmware/build/
+esp32-esp32-matter-link/esp32-matter-node/firmware/managed_components/
+esp32-esp32-matter-link/esp32-matter-node/firmware/dependencies.lock
+esp32-esp32-matter-link/esp32-matter-node/firmware/sdkconfig
+esp32-esp32-matter-link/esp32-matter-node/firmware/sdkconfig.old
+
+# Arduino build cache (if using Arduino CLI/IDE)
+**/build*/

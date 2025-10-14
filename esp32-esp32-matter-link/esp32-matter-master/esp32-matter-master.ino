@@ -26,6 +26,12 @@
 
 #include <HardwareSerial.h>
 
+trigger=closed
+big kid=trigger
+little kid=little kid
+closed=big kid
+take one= take one
+
 // ===== UART Configuration =====
 #define UART_TX_PIN 17
 #define UART_RX_PIN 18

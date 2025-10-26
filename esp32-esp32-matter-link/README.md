@@ -2,7 +2,7 @@
 
 **Status: ✅ COMPLETE**
 
-This is a **working proof-of-concept** for building Matter-enabled devices using a master/slave architecture with two ESP32 boards communicating over UART.
+This is a **working proof-of-concept** for building Matter-enabled devices using a main controller + Matter controller architecture with two ESP32 boards communicating over UART.
 
 ## 👉 **[START-HERE.md](START-HERE.md)** - Navigation guide for AI agents and humans
 
@@ -25,16 +25,16 @@ This is a **working proof-of-concept** for building Matter-enabled devices using
    - Success criteria
 
 ### For Environment Setup:
-4. **[esp32-matter-node/SETUP.md](esp32-matter-node/SETUP.md)** - ESP-IDF and ESP-Matter installation
+4. **[esp32-supermini-matter-node/SETUP.md](esp32-supermini-matter-node/SETUP.md)** - ESP-IDF and ESP-Matter installation
 
 ### Historical Reference:
 5. **[Original ChatGPT Convo](https://chatgpt.com/share/68ebfd66-49dc-800a-a080-06e2c2ba1a30)** - Initial project discussion (20251012)
-6. **[esp32-matter-node/docs/matter-mode-research/](esp32-matter-node/docs/matter-mode-research/)** - Research on HomeKit mode selection options
+6. **[esp32-supermini-matter-node/docs/matter-mode-research/](esp32-supermini-matter-node/docs/matter-mode-research/)** - Research on HomeKit mode selection options
 
 ## 🎯 Quick Start
 
-1. **Flash ESP32-S3** (Master): Open `esp32-matter-master/esp32-matter-master.ino` in Arduino IDE
-2. **Flash ESP32-C3** (Matter Node): See build instructions in POC-SUMMARY.md
+1. **Flash ESP32-S3-WROOM** (Main Controller): Open `esp32-wrover-matter-master/esp32-wrover-matter-master.ino` in Arduino IDE
+2. **Flash ESP32-C3 SuperMini** (Matter Controller): See build instructions in POC-SUMMARY.md
 3. **Wire boards**: TX↔RX crossover, shared GND, independent power
 4. **Test UART**: Use S3 CLI commands (`hello`, `ping`, `trigger`, `mode <0-3>`)
 5. **Add to HomeKit**: Scan QR code `MT:Y.K90GSY00KA0648G00`
@@ -77,8 +77,8 @@ The goal is to make the animatronic skeleton visible and controllable in Apple H
 2️⃣  Functional roles
 
 Board	Role	Responsibilities	Radio Use
-ESP32-S3-WROOM	Main brain (Director)	• Runs skits (audio, servos, LEDs).• Reads SD card scripts.• Generates sound via Bluetooth A2DP to JBL Flip speaker.• Controls jaw via FFT.• Communicates with C3 via UART (simple command protocol).	Bluetooth Classic (A2DP) only — no Wi-Fi.
-ESP32-C3 SuperMini	Matter controller (Runner)	• Joins the same Matter fabric as the other Halloween props.• Receives skit commands from S3 via UART.• Issues Matter commands (On/Off, Level, Groups) to other devices (e.g., crow, blacklight).• Exposes its own Matter endpoints so the fortune teller can be triggered or have its mode set from any Matter controller (e.g., iPhone Home app).	Wi-Fi/BLE for Matter — no A2DP.
+ESP32-S3-WROOM	Main Controller (Director)	• Runs skits (audio, servos, LEDs).• Reads SD card scripts.• Generates sound via Bluetooth A2DP to JBL Flip speaker.• Controls jaw via FFT.• Communicates with C3 via UART (simple command protocol).	Bluetooth Classic (A2DP) only — no Wi-Fi.
+ESP32-C3 SuperMini	Matter Controller (Runner)	• Joins the same Matter fabric as the other Halloween props.• Receives skit commands from S3 via UART.• Issues Matter commands (On/Off, Level, Groups) to other devices (e.g., crow, blacklight).• Exposes its own Matter endpoints so the fortune teller can be triggered or have its mode set from any Matter controller (e.g., iPhone Home app).	Wi-Fi/BLE for Matter — no A2DP.
 
 
 ⸻

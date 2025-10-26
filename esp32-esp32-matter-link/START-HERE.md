@@ -2,7 +2,7 @@
 
 ## ✅ POC Status: COMPLETE
 
-This is a **fully functional** Matter development toolkit demonstrating master/slave architecture with ESP32 boards.
+This is a **fully functional** Matter development toolkit demonstrating main controller + Matter controller architecture with ESP32 boards.
 
 ---
 
@@ -44,8 +44,8 @@ You're building a production project based on this POC. Here's your reading orde
 
 ## 🎯 For Humans: Quick Start
 
-1. **Flash ESP32-S3** (Master): Open `esp32-matter-master/esp32-matter-master.ino` in Arduino IDE
-2. **Flash ESP32-C3** (Matter Node): See [esp32-matter-node/SETUP.md](esp32-matter-node/SETUP.md) for environment setup
+1. **Flash ESP32-S3-WROOM** (Main Controller): Open `esp32-wrover-matter-master/esp32-wrover-matter-master.ino` in Arduino IDE
+2. **Flash ESP32-C3 SuperMini** (Matter Controller): See [esp32-supermini-matter-node/SETUP.md](esp32-supermini-matter-node/SETUP.md) for environment setup
 3. **Wire boards**: TX↔RX crossover, shared GND, independent power
 4. **Test UART**: Use S3 CLI commands (`hello`, `ping`, `trigger`, `mode 0-3`)
 5. **Add to HomeKit**: Scan QR code `MT:Y.K90GSY00KA0648G00`
@@ -63,11 +63,11 @@ esp32-esp32-matter-link/
 ├── QUICK-REFERENCE.md          ← Copy-paste code patterns
 ├── CHECKLIST.md                ← Implementation checklist
 │
-├── esp32-matter-master/        ← ESP32-S3 Master (Arduino)
-│   ├── esp32-matter-master.ino ← Main code with CLI and UART
+├── esp32-wrover-matter-master/ ← ESP32-S3-WROOM Main Controller (Arduino)
+│   ├── esp32-wrover-matter-master.ino ← Main code with CLI and UART
 │   └── datasheets/             ← Hardware reference docs
 │
-└── esp32-matter-node/          ← ESP32-C3 Matter Node (ESP-IDF)
+└── esp32-supermini-matter-node/ ← ESP32-C3 SuperMini Matter Controller (ESP-IDF)
     ├── SETUP.md                ← Environment setup guide
     ├── firmware/
     │   └── main/
@@ -151,7 +151,7 @@ cat QUICK-REFERENCE.md
 cat CHECKLIST.md
 
 # Setup environment
-cat esp32-matter-node/SETUP.md
+cat esp32-supermini-matter-node/SETUP.md
 ```
 
 ---

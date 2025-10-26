@@ -1,11 +1,11 @@
-# Matter Master/Slave POC - Implementation Checklist
+# Matter Main Controller + Matter Controller POC - Implementation Checklist
 
 Use this checklist when building production projects based on this POC.
 
 ## 📋 Hardware Setup
 
-- [ ] ESP32-S3 (Master) connected via USB for programming
-- [ ] ESP32-C3 (Matter Node) connected via USB for programming
+- [ ] ESP32-S3-WROOM (Main Controller) connected via USB for programming
+- [ ] ESP32-C3 SuperMini (Matter Controller) connected via USB for programming
 - [ ] UART wiring: S3 TX(17) → C3 RX(20), S3 RX(18) → C3 TX(21)
 - [ ] GND connected between boards
 - [ ] Both boards powered independently (no back-feeding)
@@ -51,7 +51,7 @@ Use this checklist when building production projects based on this POC.
 - [ ] **Debouncing implemented (200ms)** ⚠️
 - [ ] **Safety cleanup implemented (5s)** ⚠️
 
-### Master (S3)
+### Main Controller (S3-WROOM)
 - [ ] UART initialized (TX=17, RX=18, 115200 baud)
 - [ ] LED initialized (GPIO 2)
 - [ ] CLI commands implemented

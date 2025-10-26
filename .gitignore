@@ -10,11 +10,75 @@ __pycache__/
 .idea/
 
 # ESP-IDF / ESP-Matter generated files
-esp32-esp32-matter-link/esp32-matter-node/firmware/build/
-esp32-esp32-matter-link/esp32-matter-node/firmware/managed_components/
-esp32-esp32-matter-link/esp32-matter-node/firmware/dependencies.lock
-esp32-esp32-matter-link/esp32-matter-node/firmware/sdkconfig
-esp32-esp32-matter-link/esp32-matter-node/firmware/sdkconfig.old
+# Build artifacts
+**/build/
+**/managed_components/
+**/dependencies.lock
+**/sdkconfig
+**/sdkconfig.old
+
+# ESP-IDF specific build outputs
+*.bin
+*.elf
+*.map
+*.a
+*.o
+*.d
+*.lst
+*.sym
+*.dump
+*.log
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+build.ninja
+rules.ninja
+.ninja_log
+.ninja_deps
+
+# ESP-IDF specific generated files
+compile_commands.json
+project_description.json
+config.env
+kconfigs.in
+kconfigs_projbuild.in
+ldgen_libraries
+ldgen_libraries.in
+
+# Partition tables and flash args
+**/partition_table/*.bin
+**/*-flash_args
+**/*-flash_args.in
+
+# Bootloader artifacts
+**/bootloader/*.bin
+**/bootloader/*.elf
+**/bootloader/*.map
+**/bootloader/CMakeFiles/
+**/bootloader/cmake_install.cmake
+**/bootloader/CMakeCache.txt
+
+# Generated source files
+**/project_elf_src_*.c
+**/x509_crt_bundle.S
+**/https_server.crt.S
+
+# OTA and flash data
+**/ota_data_initial.bin
+**/otadata-flash_args
+
+# GDB and debugging
+**/gdbinit/
+**/flasher_args.json
 
 # Arduino build cache (if using Arduino CLI/IDE)
 **/build*/
+
+# ESP-IDF logs
+**/log/
+
+# Temporary files
+**/tmp/
+**/bootloader-prefix/

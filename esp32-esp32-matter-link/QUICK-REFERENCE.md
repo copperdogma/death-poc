@@ -220,7 +220,7 @@ Serial Monitor: 115200 baud
 
 ### ESP32-C3 (ESP-IDF)
 ```bash
-cd esp32-matter-node/firmware
+cd esp32-supermini-matter-node/firmware
 source ~/esp/esp-idf/export.sh
 export ESP_MATTER_PATH=~/esp/esp-matter
 source ~/esp/esp-matter/export.sh

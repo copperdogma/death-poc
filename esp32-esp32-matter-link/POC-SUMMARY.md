@@ -2,9 +2,9 @@
 
 ## 🎯 Project Purpose
 
-This POC demonstrates a **Matter-enabled master/slave architecture** using two ESP32 boards:
-- **ESP32-S3-WROOM (Master/Director)**: Runs application logic, CLI for testing
-- **ESP32-C3 SuperMini (Matter Node)**: Exposes Matter endpoints to HomeKit, relays commands via UART
+This POC demonstrates a **Matter-enabled main controller + Matter controller architecture** using two ESP32 boards:
+- **ESP32-S3-WROOM (Main Controller/Director)**: Runs application logic, CLI for testing
+- **ESP32-C3 SuperMini (Matter Controller)**: Exposes Matter endpoints to HomeKit, relays commands via UART
 
 **Key Goal**: Create a reusable toolkit for building Matter-controlled devices with a separation between the Matter networking layer (C3) and application logic layer (S3).
 
@@ -315,7 +315,7 @@ cd esp-matter
 ### Building & Flashing
 
 **ESP32-S3 (Master) - Arduino IDE:**
-1. Open `esp32-matter-master/esp32-matter-master.ino`
+1. Open `esp32-wrover-matter-master/esp32-wrover-matter-master.ino`
 2. Select board: "ESP32S3 Dev Module"
 3. Select port (e.g., `/dev/cu.usbmodem101`)
 4. Click Upload
@@ -323,7 +323,7 @@ cd esp-matter
 
 **ESP32-C3 (Matter Node) - ESP-IDF:**
 ```bash
-cd esp32-matter-node/firmware
+cd esp32-supermini-matter-node/firmware
 
 # Setup environment
 source ~/esp/esp-idf/export.sh
@@ -675,7 +675,7 @@ idf.py -p /dev/cu.usbmodem1101 monitor
 
 ## 📝 Code Organization
 
-### ESP32-S3 Master (`esp32-matter-master.ino`)
+### ESP32-S3-WROOM Main Controller (`esp32-wrover-matter-master.ino`)
 ```
 Setup:
 - Initialize UART (TX=17, RX=18, 115200 baud)
@@ -694,7 +694,7 @@ Key Functions:
 - cmdHello/Ping/Trigger/SetMode() - CLI command handlers
 ```
 
-### ESP32-C3 Matter Node (`app_main.cpp`)
+### ESP32-C3 SuperMini Matter Controller (`app_main.cpp`)
 ```
 Initialization:
 - Setup UART
@@ -771,19 +771,19 @@ QR codes don't change after factory reset. Keep them documented for easy re-pair
 
 ## 📚 Key Files Reference
 
-### ESP32-S3 Master
-- `esp32-matter-master/esp32-matter-master.ino` - Main Arduino sketch with CLI and UART
+### ESP32-S3-WROOM Main Controller
+- `esp32-wrover-matter-master/esp32-wrover-matter-master.ino` - Main Arduino sketch with CLI and UART
 
-### ESP32-C3 Matter Node
-- `esp32-matter-node/firmware/main/app_main.cpp` - Main application with Matter integration
-- `esp32-matter-node/firmware/main/app_reset.cpp` - Factory reset button handling
-- `esp32-matter-node/firmware/sdkconfig` - ESP-IDF configuration
-- `esp32-matter-node/firmware/partitions.csv` - Flash partition layout
+### ESP32-C3 SuperMini Matter Controller
+- `esp32-supermini-matter-node/firmware/main/app_main.cpp` - Main application with Matter integration
+- `esp32-supermini-matter-node/firmware/main/app_reset.cpp` - Factory reset button handling
+- `esp32-supermini-matter-node/firmware/sdkconfig` - ESP-IDF configuration
+- `esp32-supermini-matter-node/firmware/partitions.csv` - Flash partition layout
 
 ### Documentation
 - `README.md` - Project overview
 - `POC-SUMMARY.md` - This file (complete reference)
-- `esp32-matter-node/docs/matter-mode-research/` - Research on HomeKit mode selection
+- `esp32-supermini-matter-node/docs/matter-mode-research/` - Research on HomeKit mode selection
 
 ---
 
